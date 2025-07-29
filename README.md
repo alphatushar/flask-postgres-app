@@ -29,7 +29,7 @@ Demonstrates **Python + DevOps + Database skills** for a portfolio-ready project
 ### Clone the Repository
 
 ```bash
-git clone git@github.com:alphatushar/flask-postgres-app.git
+git clone git@github.com:alphatushar/flask-postgreSQL-app.git
 ```
 
 ---
@@ -66,6 +66,14 @@ This repository includes a **GitHub Actions CI/CD pipeline** that:
 - Displays live CI badge on this README
 
 ![CI](https://github.com/alphatushar/flask-postgres-app/actions/workflows/ci.yml/badge.svg)
+
+---
+
+### Services
+- Flask Web API → CRUD endpoints for tasks
+- PostgreSQL Database → Stores tasks
+- Runs as multi-container app using Docker Compose
+- GitHub Actions CI → Builds and tests containers automatically
 
 ---
 
