@@ -39,20 +39,29 @@ jobs:
         pip install -r requirements.txt
         pip install requests
 
-    - name: Wait for PostgreSQL to be ready
+    - name: Wait for PostgreSQL
       run: |
         for i in {1..10}; do
-          pg_isready -h localhost -U postgres && break
-          echo "Waiting for postgres..."
+          nc -zv localhost 5432 && break
+          echo "Waiting for Postgres..."
           sleep 5
         done
 
     - name: Run Flask in background
       run: |
-        nohup python app.py &
-        sleep 10
+        nohup python app.py > flask.log 2>&1 &
+        sleep 15
+        echo "=== Flask Logs ==="
+        cat flask.log
 
     - name: Test API endpoints
       run: |
-        curl -X POST http://127.0.0.1:5000/add -H "Content-Type: application/json" -d '{"task":"CI/CD Test Task"}'
+        for i in {1..10}; do
+          curl -X POST http://127.0.0.1:5000/add \
+            -H "Content-Type: application/json" \
+            -d '{"task":"CI/CD Test Task"}' && break
+          echo "Retrying in 5s..."
+          sleep 5
+        done
+
         curl http://127.0.0.1:5000/tasks
