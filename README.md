@@ -54,14 +54,18 @@ docker-compose up --build
 ![Screenshot](example/Screenshot%2010.png)
 ![Screenshot](example/Screenshot%2011.png)
 
+---
 
+## 🔄 CI/CD Pipeline
 
+This repository includes a **GitHub Actions CI/CD pipeline** that:
 
+- Builds the Dockerized Flask app
+- Starts PostgreSQL in GitHub Actions
+- Runs automated tests for `/add` and `/tasks` endpoints
+- Displays live CI badge on this README
 
-
-
-
-
+![CI](https://github.com/alphatushar/flask-postgres-app/actions/workflows/ci.yml/badge.svg)
 
 ---
 
