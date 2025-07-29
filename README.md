@@ -1,3 +1,4 @@
+![CI](https://github.com/alphatushar/flask-postgres-app/actions/workflows/ci.yml/badge.svg)
 # Flask + PostgreSQL Docker Compose App
 
 A **Flask API** connected to **PostgreSQL** running in **Docker Compose**.  
