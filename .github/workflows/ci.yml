@@ -57,11 +57,11 @@ jobs:
     - name: Test API endpoints
       run: |
         for i in {1..10}; do
-          curl -X POST http://127.0.0.1:5000/add \
+          curl -X POST http://127.0.0.1:8080/add \
             -H "Content-Type: application/json" \
             -d '{"task":"CI/CD Test Task"}' && break
           echo "Retrying in 5s..."
           sleep 5
         done
 
-        curl http://127.0.0.1:5000/tasks
+        curl http://127.0.0.1:8080/tasks
